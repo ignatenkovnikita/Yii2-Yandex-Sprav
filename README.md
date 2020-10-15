@@ -25,7 +25,19 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Add Action eexample:
+
 
 ```php
-<?= \ignatenkovnikita\yandexsprav\AutoloadExample::widget(); ?>```
+public function actions()
+{
+    return [
+        'generate' => [
+            'class' => GenerateAction::className(),
+            'fileName' => 'xls-yandex-sprav.xlsx', # желаемое название файла
+            'publicPath' => '@frontend/web', # публичная директория (обычно корень веб сервера)
+            'runtimePath' => '@runtime', # временная директория
+            'query' => Product::find()->showOnSite(),
+        ],
+    ];
+}```
